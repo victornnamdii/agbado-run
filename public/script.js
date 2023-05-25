@@ -97,7 +97,7 @@ function gameOver() {
     } else {
       document.addEventListener('keydown', start, { once: true })
     }
-    startText.textContent = 'Game Over'
+    startText.textContent = `Game Over. Your score: ${scoreBoard.textContent}`
     startText.classList.remove('hide')
   }, 100)
 }
