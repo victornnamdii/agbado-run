@@ -1,6 +1,7 @@
 import { getCustomProperty, incrementCustomProperty, setCustomProperty } from "./updateProperties.js"
 
 const runnerElement = document.querySelector('[data-runner]')
+const world = document.querySelector('[data-world]')
 const JUMP_SPEED = 0.45
 const GRAVITY = 0.0015
 const RUNNER_FRAME_COUNT = 2
@@ -16,8 +17,19 @@ export function setUpRunner() {
   runnerFrame = 0
   yVelocity = 0
   setCustomProperty(runnerElement, '--bottom', 0)
-  document.removeEventListener("keydown", onJump)
-  document.addEventListener("keydown", onJump)
+  if (navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+    document.removeEventListener("touchmove", onJump)
+    document.addEventListener("touchmove", onJump)
+  } else {
+    document.removeEventListener("keydown", onJump)
+    document.addEventListener("keydown", onJump)
+  }
 }
 
 export function animateRunner(elapsed, speedLevel) {
@@ -61,7 +73,7 @@ function jumpHandler(elapsed) {
 }
 
 function onJump(event) {
-  if (event.code !== 'Space' || isJumping) return
+  if ((event.code !== 'Space' && !(event instanceof TouchEvent)) || isJumping) return
 
   yVelocity = JUMP_SPEED
   isJumping = true

@@ -10,9 +10,21 @@ const world = document.querySelector('[data-world]')
 const scoreBoard = document.querySelector('[data-score]')
 const startText = document.querySelector('[data-start-screen]')
 
+if (navigator.userAgent.match(/Android/i)
+  || navigator.userAgent.match(/webOS/i)
+  || navigator.userAgent.match(/iPhone/i)
+  || navigator.userAgent.match(/iPad/i)
+  || navigator.userAgent.match(/iPod/i)
+  || navigator.userAgent.match(/BlackBerry/i)
+  || navigator.userAgent.match(/Windows Phone/i)) {
+  startText.textContent = 'Swipe to start'
+  document.addEventListener('touchmove', start, { once: true })
+} else {
+  document.addEventListener('keydown', start, { once: true })
+}
+
 setScale()
 window.addEventListener('resize', setScale)
-document.addEventListener('keydown', start, { once: true })
 
 let prevTime
 let speedLevel
@@ -74,7 +86,17 @@ function start() {
 function gameOver() {
   setRunnerLoss()
   setTimeout(() => {
-    document.addEventListener('keydown', start, { once: true })
+    if (navigator.userAgent.match(/Android/i)
+      || navigator.userAgent.match(/webOS/i)
+      || navigator.userAgent.match(/iPhone/i)
+      || navigator.userAgent.match(/iPad/i)
+      || navigator.userAgent.match(/iPod/i)
+      || navigator.userAgent.match(/BlackBerry/i)
+      || navigator.userAgent.match(/Windows Phone/i)) {
+      document.addEventListener('touchmove', start, { once: true })
+    } else {
+      document.addEventListener('keydown', start, { once: true })
+    }
     startText.textContent = 'Game Over'
     startText.classList.remove('hide')
   }, 100)
