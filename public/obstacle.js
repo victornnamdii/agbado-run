@@ -38,7 +38,7 @@ export function getObstaclePosition() {
 function createObstacle() {
   const obstacle = document.createElement('img')
   obstacle.dataset.obstacle = true
-  obstacle.src = '/src_images/cactus.png'
+  obstacle.src = '/src_images/corn.png'
   obstacle.classList.add('obstacle')
   setCustomProperty(obstacle, '--left', 100)
   world.append(obstacle)
