@@ -20,7 +20,7 @@ The game is hosted on: http://agbadorun.byethost7.com
 * Run:
 
 ```bash
-npm run game
+npm start
 ```
 
 * Open `http://127.0.0.1:3000/` in your browser.

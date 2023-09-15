@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "game": "nodemon game.js"
+    "start": "nodemon game.js"
   },
   "keywords": [],
   "author": "",
