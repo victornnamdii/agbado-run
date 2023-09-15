@@ -2,7 +2,7 @@
 
 This is a clone of Google Chrome's dino run game, but instead with a Nigerian flag running and jumping over corn.
 
-The game is hosted on: http://agbadorun.byethost7.com
+The game is hosted on: https://agbado-run.onrender.com
 
 ![alt text](https://github.com/victornnamdii/agbado-run/blob/main/_images/image1.png?raw=true)
 ![alt text](https://github.com/victornnamdii/agbado-run/blob/main/_images/image2.png?raw=true)
